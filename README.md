@@ -1,108 +1,94 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Learn2Learn
 
-Welcome arneladedovic,
+## Purpose of this site
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This site has been created so that users can share and seek information about education choices.   
+Registered users can create, edit and delete their own posts and share their experiences with various educations. They can also comment and like other people's posts.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![am i responsive](/documentation/testing/location_responsive.png)
 
-## Gitpod Reminders
+### User Stories
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+I used Github Issues to record the following user stories:
+ 
+- Manage posts - As a site admin I can create, read, update and delete posts so that I can manage the content on the site
+- Pagination - As a site user I can view a paginated list of posts so that I can easily select a post to view.
+- Account registration - As a site user I can register an account so that I can comment and like posts
+- Landing page - As a site user I can go to the landing page so that I can see the purpose of the website
+- Account registration - As a site user I can register an account so that I can comment and like posts
+- Read content - As a site user / admin I can view the content and comments on an individual post so that I can read the comments and content on the page
+- Create a post - As a site user I can create a new post so that I can share education tips with other users
+- Update posts - As a site user I can edit my posts so that I can update or correct information
+- Delete posts - As a site user I can delete my posts so that I can remove them from the website
+- Create a post - As a signed in user I can create a new post so that I can share locations with other users.
+- Comment on a post - As a site user I can leave a comment on a post so that I can interact with the content
+- Delete posts - As a signed in user I can delete my posts so that I can remove them from the website.
+- View likes - As a site user/admin I can view the number of likes on each post so that I can see which is most popular
+- Like/unlike - As a site user I can like or unlike a post so that I can interact with the content
 
-A blue button should appear to click: _Make Public_,
+### Agile Development Tool
 
-Another blue button should appear to click: _Open Browser_.
+During this project, I have used Agile software development tool and thus used Kanban Template to create the project for this website.
+As I start working on each issue I move it to the 'In progress' column.  When the coding for each issue has been completed, the issue is then moved to the 'done' column.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+![my kanban board](/media/images/kanban.png)
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+### Data Model
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+I needed two data models to make this website work. The first data model is the Post. This contains the information for the post. I have a second data model for the comments which are linked to a post.
 
-To log into the Heroku toolbelt CLI:
+#### Location post model
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+| Key | Name | Type
+|-----|----------------|------------------|
+| | title (unique) | Char(200)
+| foreign key | author | User Model
+| | created_date | DateTime
+| | content | TextField
+| | featured_image | Cloudinary_image
+| | excerpt | TextField
+| many-to-many | likes | User Model
+| label for url | slug (unique) | slugfield
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+#### Comment model
 
-------
+| Key | Name | Type
+|--------|----------------|-------------------|
+|foreign key | post | Post Model
+| | name | Char(80)
+| | body | TextField
+| | created_on | DateTime
 
-## Release History
+### Features
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+A short introduction to my site. 
+Since my page crashed an hour before submit and I haven't had time to solve it in such a short time, I'm submitting this as I have it.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![my kanban board](/media/images/nav-bar.png)
+![my kanban board](/media/images/main-site.png)
+![my kanban board](/media/images/footer.png)
+![my kanban board](/media/images/register.png)
+![my kanban board](/media/images/add-post.png)
+![my kanban board](/media/images/error.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Deploy
+- Ensure in Django settings, DEBUG is False
+- Go to the deploy tab on Heroku and connect to GitHub, then to the required repository.
+- Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually.
+- Click View to view the deployed site.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Credits
+- I used 'I think therefore I blog' to set up files, Heroku app, Cloudinary, environmental variables and GitHub Projects.
+- Credits goes to Dennis Ivy on Youtube for the help with alot of codes on the site. 
+- I used GitHub Projects and Kanban for user stories like 'I think therefore I blog'
+- I used card system from 'I think therefore I blog' for displaying posts.
+- I used the messages from 'I think therefore I blog'
+- I used colors from: https://color-hex.org/
+- I used bootstrap links from 'I think therefore I blog'.
+- I used the images from: https://www.pexels.com/
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+## Acknowledgements
+Learn2Learn was completed as a Porfolio 4 Project for the Full Stack Software Developer education at the Code Institute. I would like to thank the Slack Community and Code Institute for the help and support during this project. A better version is comming in the future with a lots of fun stuff on the page!
