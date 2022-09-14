@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['learn2learn-nelci.herokuapp.com', 'localhost']
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-arneladedov-educationbl-75bpj7ztzib.ws-eu64.gitpod.io']
 
 # Application definition
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'django_summernote',
     'blog',
 ]
 
