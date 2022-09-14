@@ -21,5 +21,5 @@ class CommentAdmin(admin.ModelAdmin):
     Fields for display in adminpage
     """
     list_filter = ('created_on',)
-    search_fields = ('name', 'body')
+    search_fields = ['name', 'body']
     list_display = ('name', 'body', 'created_on', 'post')
