@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% extends 'post_list.html' %}
 {% load static %}
 {% block content %}
 {% load crispy_forms_tags %}
@@ -13,7 +14,7 @@
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
                 <img class="detail-img" src="{% static 'images/postlist-education.jpg' %}"
-                    alt="Image of a book, pen and a plant">
+                    alt="Image of a books">
                 
                     {% else %}
                 <img class="detail-img" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">

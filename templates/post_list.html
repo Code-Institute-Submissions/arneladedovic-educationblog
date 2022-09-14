@@ -59,7 +59,7 @@
                             
                             <div>
                             {% if user.is_authenticated %}
-                                <a href="{% url 'post_detail' post.slug %}" role="button" class="btn btn-outline-dark">View</a>
+                                <a href="{% url 'post_detail', post.slug %}" role="button" class="btn btn-outline-dark">View</a>
                             
 
                             {% if post.author.id == user.id %}
