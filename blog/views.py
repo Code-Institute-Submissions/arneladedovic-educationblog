@@ -106,7 +106,7 @@ class PostCreate(CreateView):
     Logged in user can create a post
     """
     model = Post
-    fields = ['title', 'location', 'content', 'featured_image', 'excerpt']
+    fields = ['title', 'content', 'featured_image', 'excerpt']
     template_name = 'post_create.html'
     success_url = reverse_lazy('post_list')
 
@@ -116,7 +116,7 @@ class PostCreate(CreateView):
         """
         form.instance.author = self.request.user
         messages.success(
-            self.request, 'You have successfully created a Location Post')
+            self.request, 'You have successfully created a post')
         return super(PostCreate, self).form_valid(form)
 
 
@@ -135,7 +135,7 @@ class PostEdit(UpdateView):
         """
         form.instance.author = self.request.user
         messages.success(
-            self.request, 'You have successfully edited a Location post')
+            self.request, 'You have successfully edited a post')
         return super(PostEdit, self).form_valid(form)
 
 
