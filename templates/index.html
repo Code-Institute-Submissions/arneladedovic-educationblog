@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid hero-container">
+    <div class="row hero overlay hero-image img-fluid">
+        <div class="col-12 hero-text">
+            <h1>Learn<strong>2</strong>Learn</h1>
+            <h2>Are you thinking about starting to study?</h2>
+            <h3>Then you are in the right place!</h3>
+            <p>Here with us you can find all possible educational programs in different categories - your future starts here!</p>
+            <a class="btn btn-lg btn-hero" href="{% url 'post_list' %}" role="button">See More!</a>
+        </div>
+    </div>
+</div>
+<section>
+    <h4 class="text-center">Learn<strong>2</strong>Learn</h4>
+    <div class="text-center">
+        <p>Learn2Learn guides you who want to study to find information about which courses are available and how to apply.</p>
+        <p>For each education, the most important information you need is presented, such as eligibility requirements, admission points, possible costs, etc. When you have found a course, you can easily get in touch with the school via the link provided. Good luck!</p>
+    </div>
+</section>
+
+{% endblock %}
